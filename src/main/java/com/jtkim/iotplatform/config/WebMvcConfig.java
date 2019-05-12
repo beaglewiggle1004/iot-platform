@@ -11,8 +11,8 @@ import com.jtkim.iotplatform.interceptor.MeasurementInterceptor;
 @ComponentScan({"com.jtkim.iotplatform"})
 public class WebMvcConfig implements WebMvcConfigurer {
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new MeasurementInterceptor());
-	}
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new MeasurementInterceptor());
+    }
 }

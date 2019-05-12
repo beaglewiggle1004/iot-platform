@@ -10,54 +10,52 @@ import javax.persistence.Id;
 @Entity
 public class Device extends BaseAuditableEntity implements Serializable {
 
-	private static final long serialVersionUID = 2688799350337496378L;
-	
-	@Id
+    private static final long serialVersionUID = 2688799350337496378L;
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
+
     private String name;
-    
+
     private String type;
 
     protected Device() {
-    	super();
+        super();
     }
 
     public Device(String name, String type) {
-    	super();
+        super();
         this.name = name;
         this.type = type;
     }
 
     public Long getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	@Override
+    @Override
     public String toString() {
-        return String.format(
-                "Device[id=%d, name='%s', type='%s']",
-                id, name, type);
+        return String.format("Device[id=%d, name='%s', type='%s']", id, name, type);
     }
 }

@@ -13,12 +13,13 @@ import com.jtkim.iotplatform.exception.IoTPlatformException;
 
 /**
  * 
+ * Exception Handlling 등 공통 처리를 위한 BaseController
  * @author JTKIM
  *
  */
 public class BaseController {
 
-	private static final Logger log = LoggerFactory.getLogger(BaseController.class);
+    private static final Logger log = LoggerFactory.getLogger(BaseController.class);
 
     @Autowired
     private IoTPlatformErrorResponseHandler errorResponseHandler;
@@ -33,16 +34,18 @@ public class BaseController {
     }
 
     private IoTPlatformException handleException(Exception exception, boolean logException) {
-    	if (logException) {
-    		log.error(exception.getLocalizedMessage());
-    	}
-    	
+        if (logException) {
+            log.error(exception.getLocalizedMessage());
+        }
+
         if (exception instanceof IoTPlatformException) {
             return (IoTPlatformException) exception;
         } else if (exception instanceof IllegalArgumentException) {
-            return new IoTPlatformException(exception.getMessage(), IoTPlatformErrorCode.INVALID_ARGUMENTS);
+            return new IoTPlatformException(exception.getMessage(),
+                    IoTPlatformErrorCode.INVALID_ARGUMENTS);
         } else {
-            return new IoTPlatformException(exception.getMessage(), IoTPlatformErrorCode.GENERAL);
+            return new IoTPlatformException(exception.getMessage(),
+                    IoTPlatformErrorCode.GENERAL);
         }
     }
 }

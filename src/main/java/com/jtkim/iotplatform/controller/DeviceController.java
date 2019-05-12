@@ -19,28 +19,28 @@ import com.jtkim.iotplatform.service.DeviceService;
 @RestController
 @RequestMapping(value = "/device")
 public class DeviceController extends BaseController {
-    
-	@Autowired
-	TaskExecutor taskExecutor;
-	
-	@Autowired
-	DeviceService deviceService;
 
-	@ApiOperation(value = "디바이스 조회")
+    @Autowired
+    TaskExecutor taskExecutor;
+
+    @Autowired
+    DeviceService deviceService;
+
+    @ApiOperation(value = "디바이스 조회")
     @GetMapping(value = "/{id}")
     public Optional<Device> getDevice(@PathVariable Long id) {
         return deviceService.get(id);
     }
 
-	@ApiOperation(value = "모든 디바이스 조회")
+    @ApiOperation(value = "모든 디바이스 조회")
     @GetMapping(value = "")
     public DeferredResult<List<Device>> getAllDevice() {
         final DeferredResult<List<Device>> result = new DeferredResult<>();
-    	
+
         taskExecutor.execute(() -> {
-        	result.setResult(deviceService.list());
+            result.setResult(deviceService.list());
         });
-        
-    	return  result;
+
+        return result;
     }
 }

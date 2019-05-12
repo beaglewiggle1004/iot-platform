@@ -11,24 +11,24 @@ import com.jtkim.iotplatform.repository.DeviceDataRepository;
 
 @Service
 public class DeviceDataService {
-	
-	@Autowired
-	private DeviceDataRepository deviceDataRepository;
-	
-	public Optional<DeviceData> getById(Long id) {
-		return deviceDataRepository.findById(id);
-	}
-	
-	public Optional<DeviceData> getByDeviceIdAndId(Long deviceId, Long id) {
-		return deviceDataRepository.findByDeviceIdAndId(deviceId, id);
-	}
-	
-	public List<DeviceData> getByDeviceId(Long deviceId) {
-		return deviceDataRepository.findByDeviceId(deviceId);
-	}
-	
-	public List<DeviceData> list() {
-		return deviceDataRepository.findAll();
-	}
+
+    @Autowired
+    private DeviceDataRepository deviceDataRepository;
+
+    public Optional<DeviceData> getById(Long id) {
+        return deviceDataRepository.findById(id);
+    }
+
+    public Optional<DeviceData> getByDeviceIdAndId(Long deviceId, Long id) {
+        return deviceDataRepository.findByDeviceIdAndId(deviceId, id);
+    }
+
+    public List<DeviceData> getByDeviceId(Long deviceId) {
+        return deviceDataRepository.findByDeviceId(deviceId);
+    }
+
+    public List<DeviceData> list() {
+        return deviceDataRepository.findAll();
+    }
 
 }

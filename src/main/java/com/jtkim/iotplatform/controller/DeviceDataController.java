@@ -19,30 +19,30 @@ import com.jtkim.iotplatform.service.DeviceDataService;
 @RestController
 @RequestMapping(value = "/device/{deviceId}/data")
 public class DeviceDataController extends BaseController {
-    
-	@Autowired
-	TaskExecutor taskExecutor;
-	
-	@Autowired
-	DeviceDataService deviceDataService;
-	
-	@ApiOperation(value = "디바이스 데이터 조회")
+
+    @Autowired
+    TaskExecutor taskExecutor;
+
+    @Autowired
+    DeviceDataService deviceDataService;
+
+    @ApiOperation(value = "디바이스 데이터 조회")
     @GetMapping(value = "/{id}")
     public Optional<DeviceData> getDeviceData(@PathVariable Long deviceId, @PathVariable Long id) {
         return deviceDataService.getByDeviceIdAndId(deviceId, id);
     }
-    
-	@ApiOperation(value = "디바이스 데이터 조회")
+
+    @ApiOperation(value = "디바이스 데이터 조회")
     @GetMapping(value = "")
-    public DeferredResult<List<DeviceData>> getAllDeviceData(@PathVariable Long deviceId) {
+    public DeferredResult<List<DeviceData>> getAllDeviceData( @PathVariable Long deviceId) {
         final DeferredResult<List<DeviceData>> result = new DeferredResult<>();
-    	
+
         taskExecutor.execute(() -> {
-        	List<DeviceData> deviceData = deviceDataService.getByDeviceId(deviceId);
-        	
-        	result.setResult(deviceData);
+            List<DeviceData> deviceData = deviceDataService.getByDeviceId(deviceId);
+
+            result.setResult(deviceData);
         });
-        
-    	return result;
+
+        return result;
     }
 }

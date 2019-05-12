@@ -12,8 +12,8 @@ import com.jtkim.iotplatform.domain.Device;
 public interface DeviceRepository extends JpaRepository<Device, Long> {
 
     Optional<Device> findById(Long id);
-    
+
     Optional<Device> findByName(String name);
-    
+
     List<Device> findByType(String type);
 }

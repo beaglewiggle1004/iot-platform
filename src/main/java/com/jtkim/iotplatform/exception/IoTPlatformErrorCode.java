@@ -18,5 +18,4 @@ public enum IoTPlatformErrorCode {
     public int getErrorCode() {
         return errorCode;
     }
-
 }
