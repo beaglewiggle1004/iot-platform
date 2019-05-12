@@ -2,12 +2,12 @@
 Spring Boot 기반 센서데이터 조회 기능 구현
 
 ## Database
-H2 Database Engine (in-memory)
+H2 Database Engine (in-memory)  
 Console Endpoint - /api/h2-console
 
 ## API Documentation
-Swagger
-Swagger UI Endpoint - /api/swagger-ui.html)
+Swagger  
+Swagger UI Endpoint - /api/swagger-ui.html
 
 ### File Structure
 ```
